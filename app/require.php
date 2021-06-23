@@ -93,7 +93,7 @@ switch($page) {
     case "home":
 
         default:
-            //(new MainPageController())->indexMP();
+            (new MainPageController())->indexMP();
             break;
     }
 
