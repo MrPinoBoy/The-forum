@@ -4,7 +4,7 @@
     define('DB_HOST','mysql');
     define('DB_USER','root');
     define('DB_PASS','root');
-    define('DB_NAME','testmvc');
+    define('DB_NAME','forum');
 
     //URLROOT (Dynamic links)
     define('URLROOT','localhost');
