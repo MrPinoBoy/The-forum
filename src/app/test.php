@@ -1,4 +1,4 @@
-<form method="post" action="./Controller/UserController.php">
+<form method="post" action="/Controller/UserController.php">
     <input type="text" name="nickname"></input>
     <input type="text" name="email"></input>
     <input type="text" name="password"></input>

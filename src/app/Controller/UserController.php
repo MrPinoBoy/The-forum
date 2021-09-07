@@ -6,4 +6,4 @@
     //config
     require_once "../config/config.php";
 
-    (new NewUser())->createUser($_POST["nickname"],$_POST["email"],$_POST["password"],$_POST["avatar"],$_POST["signature"]);//on crée un nouvel utilisateur et on lui applique la fonction createUser avec les paramêtres insérés
+    (new NewUser($_POST["nickname"]))->createUser();//on crée un nouvel utilisateur et on lui applique la fonction createUser avec les paramêtres insérés
