@@ -11,6 +11,7 @@
 </head>
 <body>
     <a href = "index.php?page=CreateTopic">CLIC HERE DUMBASS</a>
+    <a href = "index.php?page=TopicList">CLIC HERE HANDSOME BOI</a>
 </body>
 </html>
 

@@ -1,34 +1,24 @@
-<?php
+  <?php
 
-declare(strict_types=1); //on force les variables à être d'un seul type spécifique
+// declare(strict_types=1);
+ 
 
-require_once '../app/libraries/DatabaseManager.php';
-
-// $today = date("Y-m-d H:i:s");
-
-class Topic extends DatabaseManager
+class Topic
 {
 
-    // public string $title;
-    // public string $content;
-    // public string $author;
-    // public ?string $creation_date;
-
-    public function __construct(string $title, string $content) 
+    public function __construct(string $title, ?string $creationDate, ?string $content, ?string $author, ?string $board)
     {
         $this->title = $title;
+        $this->creationDate = $creationDate;
+        $this->author = $author;
         $this->content = $content;
-        $this->author = "William"; //utilisateur connecté
-        $this->creation_date = date("Y-m-d H:i:s"); //date et heure actuelle (changer le type de la database VarCHAR --> DATE)
+        $this->board = $board;
+
     }
 
-
-    public function createTopic(){//on demande ces parametres, les "?" disent qu'ils sont optionels
-        $db = $this->connectDb();//on enclenche une connexion à la BdD
-        $db->prepare(//on prépare une consigne sql
-            "INSERT INTO Table_topics (Title,Contents,Author,creationDate) VALUES (?,?,?,?)"
-        )->execute([$this->title,$this->content,$this->author,$this->creation_date]);//et on l'exécute en remplaçant les "?" par les paramètres
+    public function formatPublishDate() //modifie l'affichage de date&heure
+    {
+        $formatted = date('d/M/Y', strtotime($this->publishDate));
+        return $formatted;
     }
 }
-
-//app/testTopic.php
