@@ -18,8 +18,23 @@ class User extends DatabaseManager
         $this->username = $username;
         $this->email = $email;
         $this->password = $password;
-        $this->avatar = $avatar;
+
+        $this->avatar = $this->get_gravatar($this->email);
+
         $this->signature = $signature;
+    }
+
+    public function get_gravatar( $email, $s = 80, $d = 'retro', $r = 'g', $img = false, $atts = array() ) {
+        $url = 'https://www.gravatar.com/avatar/';
+        $url .= md5( strtolower( trim( $email ) ) );
+        $url .= "?s=$s&d=$d&r=$r";
+        if ( $img ) {
+            $url = '<img src="' . $url . '"';
+            foreach ( $atts as $key => $val )
+                $url .= ' ' . $key . '="' . $val . '"';
+            $url .= ' />';
+        }
+        return $url;
     }
 
     public function createUser(){//on demande ces parametres, les "?" disent qu'ils sont optionels
@@ -31,10 +46,9 @@ class User extends DatabaseManager
 
     public function loginUser($username, $password) {
         $db = $this->connectDb();
-        $db->prepare(
-            'SELECT nickname FROM users WHERE nickname = ? AND password = ?'
+        $_SESSION = $db->query(
+            'SELECT nickname FROM users WHERE nickname = $username AND password = $password'
         );
-        $_SESSION = $db->execute([$username,$password]);
         echo $_SESSION;
     }
 }

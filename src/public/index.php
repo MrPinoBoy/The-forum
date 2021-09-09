@@ -1,3 +1,4 @@
+<?php session_start()?><!-- on crée une session en arrivant sur la page, afin de pouvoir utiliser $_SESSION -->
 <?php
     require_once '../app/require.php';
 ?>
@@ -13,5 +14,8 @@
 </head>
 <body>
     <a href="index.php?page=createUser">test</a>
+    <a href="index.php?page=login">login</a>
+    <a href="index.php?page=disconnect">disconnect</a>
+    <a href="index.php?page=profile">profile</a>
 </body>
 </html>
