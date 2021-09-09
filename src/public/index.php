@@ -17,5 +17,6 @@
     <a href="index.php?page=login">login</a>
     <a href="index.php?page=disconnect">disconnect</a>
     <a href="index.php?page=profile">profile</a>
+    <a href="index.php?page=profile&board=general">profile</a>
 </body>
 </html>
