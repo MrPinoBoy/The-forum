@@ -2,7 +2,7 @@
 
 declare(strict_types=1); //on force les variables à être d'un seul type spécifique
 
-require_once '../../app/libraries/DatabaseManager.php';
+require_once '../app/libraries/DatabaseManager.php';
 
 class User extends DatabaseManager
 {
@@ -18,8 +18,23 @@ class User extends DatabaseManager
         $this->username = $username;
         $this->email = $email;
         $this->password = $password;
-        $this->avatar = $avatar;
+
+        $this->avatar = $this->get_gravatar($this->email);
+
         $this->signature = $signature;
+    }
+
+    public function get_gravatar( $email, $s = 80, $d = 'retro', $r = 'g', $img = false, $atts = array() ) {
+        $url = 'https://www.gravatar.com/avatar/';
+        $url .= md5( strtolower( trim( $email ) ) );
+        $url .= "?s=$s&d=$d&r=$r";
+        if ( $img ) {
+            $url = '<img src="' . $url . '"';
+            foreach ( $atts as $key => $val )
+                $url .= ' ' . $key . '="' . $val . '"';
+            $url .= ' />';
+        }
+        return $url;
     }
 
     public function createUser(){//on demande ces parametres, les "?" disent qu'ils sont optionels
@@ -27,5 +42,13 @@ class User extends DatabaseManager
         $db->prepare(//on prépare une consigne sql
             'INSERT INTO users (nickname,email,password,avatar,signature) VALUES (?,?,?,?,?)'
         )->execute([$this->username, $this->email, $this->password, $this->avatar, $this->signature]);//et on l'exécute en remplaçant les "?" par les paramètres
+    }
+
+    public function loginUser($username, $password) {
+        $db = $this->connectDb();
+        $_SESSION = $db->query(
+            'SELECT nickname FROM users WHERE nickname = $username AND password = $password'
+        );
+        echo $_SESSION;
     }
 }
