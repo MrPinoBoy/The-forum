@@ -1,6 +1,6 @@
-<?php session_start()?><!-- on crée une session en arrivant sur la page, afin de pouvoir utiliser $_SESSION -->
+<?php //ce fichier sera le seul auquel l'utilisateur aura accès c'est en quelque sorte la page d'accueil?>
 <?php
-    require_once '../app/require.php';
+    require_once '../app/require.php';//on connecte ce fichier à notre dossier de développement, auquel l'utilisateur ne peut surtout pas avoir accès
 ?>
 
 <!DOCTYPE html>

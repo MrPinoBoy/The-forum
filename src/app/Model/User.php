@@ -7,12 +7,6 @@ require_once '../app/libraries/DatabaseManager.php';
 class User extends DatabaseManager
 {
 
-    // public string $username;
-    // public string $email;
-    // public string $password;
-    // public ?string $avatar;
-    // public ?string $signature;
-
     public function __construct(string $username, string $email, string $password, ?string $avatar, ?string $signature) 
     {
         $this->username = $username;
