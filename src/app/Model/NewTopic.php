@@ -6,7 +6,7 @@ require_once '../app/libraries/DatabaseManager.php';
 
 // $today = date("Y-m-d H:i:s");
 
-class Topic extends DatabaseManager
+class NewTopic extends DatabaseManager
 {
 
     // public string $title;
@@ -14,22 +14,24 @@ class Topic extends DatabaseManager
     // public string $author;
     // public ?string $creation_date;
 
-    public function __construct(string $title, string $content) 
+    public function __construct(string $title, string $content, string $board) 
     {
         $this->title = $title;
         $this->content = $content;
         $this->author = "William"; //utilisateur connecté
-        $this->creation_date = date("Y-m-d H:i:s"); //date et heure actuelle (changer le type de la database VarCHAR --> DATE)
-        $this->board = "ins. board here"; //afficher le board parent
+        $this->creation_date = date("Y-m-d H:i:s", strtotime('+2 hours')); //date et heure actuelle 
+        $this->board = $board; //afficher le board parent
     }
 
 
     public function createTopic(){//on demande ces parametres, les "?" disent qu'ils sont optionels
         $db = $this->connectDb();//on enclenche une connexion à la BdD
         $db->prepare(//on prépare une consigne sql
-            "INSERT INTO topics (Title,Author,creationDate, Board) VALUES (?,?,?,?); INSERT INTO messages(author, content, create_date, topic) VALUES (?,?,?,?);"
+            "INSERT INTO topics (Title,Author,creationDate, Board) VALUES (?,?,?,?);"
             
-            )->execute([$this->title,$this->author,$this->creation_date,$this->board,$this->author,$this->content,$this->creation_date,$this->title]);
+            )->execute([$this->title,$this->author,$this->creation_date,$this->board]);
+
+        $db->prepare("INSERT INTO messages(author, content, creationDate, topic, editionDate) VALUES (?,?,?,?,?);")->execute([$this->author,$this->content,$this->creation_date,$this->title,$this->creation_date]);   
 
 
             //     "INSERT INTO topics (Title,Contents,Author,creationDate, Board) VALUES (?,?,?,?,?)"

@@ -6,19 +6,20 @@ require_once '../app/libraries/DatabaseManager.php';
 
 class TopicList extends DatabaseManager
 {
-    public function getTopics(){
-        $data = $this->fetchTopics();
+    public function getTopics($board){
+        $data = $this->fetchTopics($board);
         return $data;
     }
 
-    public function fetchTopics(){
+    public function fetchTopics($board){
         $db = $this->connectDb();
 
         $req = $db->query(
-            'SELECT * 
+            "SELECT * 
             FROM topics
+            WHERE board = '$board'
             ORDER BY creationDate
-            DESC');
+            DESC");
 
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }

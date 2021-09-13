@@ -7,12 +7,12 @@ require_once '../app/Model/Topic.php';
 
 class TopicListController{
 
-    public function index(){
+    public function index($board){
 
         $model = new TopicList;
-        $topics = $model->getTopics();
+        $topics = $model->getTopics($board);
         foreach($topics as $key =>$topic){
-            $topics[$key] = new Topic($topic['Title'],$topic['creationDate'],$topic['Contents'],$topic['Author'],$topic['Board']);
+            $topics[$key] = new Topic($topic['title'],$topic['creationDate'],$topic['author'],$topic['board']);
             
         
         }
@@ -26,7 +26,7 @@ class TopicListController{
     public function show(){
         $model = new TopicList;
         $topic = $model->getSingleTopic($_GET['Topic']);
-        $topic = new Topic($topic['Title'],$topic['creationDate'],$topic['Contents'],$topic['Author'],$topic['Board']);
+        $topic = new Topic($topic['title'],$topic['creationDate'],$topic['author'],$topic['board']);
 
         require '../app/View/topic/topic.php';
     }

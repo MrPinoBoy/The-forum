@@ -6,12 +6,11 @@
 class Topic
 {
 
-    public function __construct(string $title, ?string $creationDate, ?string $content, ?string $author, ?string $board)
+    public function __construct(string $title, ?string $creationDate, ?string $author, ?string $board)
     {
         $this->title = $title;
         $this->creationDate = $creationDate;
         $this->author = $author;
-        $this->content = $content;
         $this->board = $board;
 
     }

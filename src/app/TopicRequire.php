@@ -5,10 +5,12 @@ declare(strict_types = 1);
 require_once "Controller/TopicController.php";
 require_once "Controller/TopicListController.php";
 require_once "Model/Topic.php";
+require_once "Model/NewTopic.php";
 require_once "config/config.php";
 
 
 $page = $_GET["page"] ?? null;
+$board = $_GET["board"] ?? null;
 
 switch ($page) {
     case 'CreateTopic':
@@ -22,6 +24,13 @@ switch ($page) {
     case 'Topic':
         (new TopicListController())-> show();
         break;
+
+    case 'Boards':
+        switch($board) {
+            case 'General':
+                (new TopicListController())-> index($board);
+                break;
+        }
     
     default:
         # code...

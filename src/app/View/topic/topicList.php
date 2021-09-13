@@ -5,6 +5,8 @@
 <section>
     <h1>Articles</h1>
     
+    <a href = "index.php?page=CreateTopic&board=<?= $board ?>">CLIC HERE DUMBASS</a>
+
     <ul>
         <?php foreach ($topics as $topic) : ?>
             
@@ -16,3 +18,4 @@
 </section>
 
 <?php require '../app/View/includes/footer.php'?>
+
