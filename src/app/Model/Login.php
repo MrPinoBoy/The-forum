@@ -17,4 +17,14 @@ class Login extends DatabaseManager
             $_SESSION['loggedAvatar'] = $row[3];
         }
     }
+
+    public function passwordFetch($email) {
+        $db = $this->connectDb();
+        foreach($db->query(
+            "SELECT password FROM users WHERE email = '$email'"
+        ) as $row){
+            $password = $row[0];
+        }
+        return $password;
+    }
 }
