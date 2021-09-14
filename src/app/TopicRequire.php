@@ -1,7 +1,6 @@
 <?php
-
 declare(strict_types = 1);
-
+session_start();
 require_once "Controller/TopicController.php";
 require_once "Controller/TopicListController.php";
 require_once "Controller/MainPageController.php";
@@ -20,22 +19,19 @@ switch ($page) {
         (new TopicController())->createTopic();  
         break;
     
-    case 'TopicList':
-        (new TopicListController())->index();
-        break;
+    // case 'TopicList':
+    //     (new TopicListController())->index();
+    //     break;
     
     case 'Topic':
         (new TopicListController())->show();
+        (new TopicListController())->lock();
         break;
 
     case 'Boards':
-        switch($board) {
-            case 'General':
-                (new TopicListController())->index($board);
-                break;
-            }
+        (new TopicListController())->index($board);
         break;
-    
+
     default:
         (new MainPageController())->indexMP();
         break;

@@ -18,7 +18,7 @@ class NewTopic extends DatabaseManager
     {
         $this->title = $title;
         $this->content = $content;
-        $this->author = "William"; //utilisateur connecté
+        $this->author = $_SESSION['loggedUser']; //utilisateur connecté
         $this->creation_date = date("Y-m-d H:i:s", strtotime('+2 hours')); //date et heure actuelle 
         $this->board = $board; //afficher le board parent
     }

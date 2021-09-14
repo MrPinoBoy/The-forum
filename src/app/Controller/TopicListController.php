@@ -12,7 +12,7 @@ class TopicListController{
         $model = new TopicList;
         $topics = $model->getTopics($board);
         foreach($topics as $key =>$topic){
-            $topics[$key] = new Topic($topic['title'],$topic['creationDate'],$topic['author'],$topic['board']);
+            $topics[$key] = new Topic($topic['title'],$topic['creationDate'],$topic['author'],$topic['board'],$topic['ID'],$topic['locked']);
             
         
         }
@@ -26,8 +26,16 @@ class TopicListController{
     public function show(){
         $model = new TopicList;
         $topic = $model->getSingleTopic($_GET['Topic']);
-        $topic = new Topic($topic['title'],$topic['creationDate'],$topic['author'],$topic['board']);
-
+        $topic = new Topic($topic['title'],$topic['creationDate'],$topic['author'],$topic['board'],$topic['ID'],$topic['locked']);
+        
         require '../app/View/topic/topic.php';
+    }
+
+    public function lock(){
+        if($_POST['locked']=="1"){
+            $model = new TopicList;
+            $topic = $model->getSingleTopic($_GET['Topic']);
+            $topic = (new Topic($topic['title'],$topic['creationDate'],$topic['author'],$topic['board'],$topic['ID'],$topic['locked']))->update();
+        }
     }
 }
