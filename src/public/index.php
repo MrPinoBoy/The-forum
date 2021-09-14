@@ -10,8 +10,11 @@
     <title><?php echo SITENAME ?></title>
 </head>
 <body>
-    <a href = "index.php?page=TopicList">CLIC HERE HANDSOME BOI</a>
-    <a href = "index.php?page=Boards&board=General">BOARD GENERAL</a>
+    <a href = "index.php?page=TopicList">CLIC HERE HANDSOME BOI<br></a>
+    <a href = "index.php?page=Boards&board=General">BOARD GENERAL<br></a>
+    <a href = "index.php?page=Boards&board=Development">BOARD DEVELOPMENT<br></a>
+    <a href = "index.php?page=Boards&board=Smalltalks">BOARD SMALLTALKS<br></a>
+    <a href = "index.php?page=Boards&board=Events">BOARD EVENTS</a>
 </body>
 </html>
 

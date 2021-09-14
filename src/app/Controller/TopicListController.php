@@ -2,8 +2,8 @@
 
 declare(strict_types = 1);
 
-require_once '../app/Model/TopicList.php';
-require_once '../app/Model/Topic.php';
+// require_once '../app/Model/TopicList.php';
+// require_once '../app/Model/Topic.php';
 
 class TopicListController{
 
