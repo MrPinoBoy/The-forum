@@ -12,16 +12,16 @@ class MainPageController{
         $boardsMP = $mainPage->getBoards();
 
         foreach($boardsMP AS $board){
-            echo "$board[name]<br>";
-            echo "$board[description]<br>";
+            echo "<a href=index.php?page=Boards&board=".$board['name'].">".$board['name']."<br>".$board['description']."</a><br>";
+            $topicsMP = $mainPage->getRecentTopics($board['name']);
+            for($i=0;$i<3;$i++){
+                echo "<a href=index.php?page=Topic&Topic=".$topicsMP[$i]['title'].">".$topicsMP[$i]['title']."<br>".
+                $topicsMP[$i]['creationDate']."<br>".
+                $topicsMP[$i]['author']."</a><br>";
+            }
         }
 
         require_once '../app/View/mainpage/MainPageView.php';
-        // foreach($topics as $key =>$topic){
-        //     $topics[$key] = new Topic($topic['title'],$topic['creationDate'],$topic['author'],$topic['board']);
-            
-        
-        // }
     }
 }
 

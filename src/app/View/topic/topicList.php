@@ -4,9 +4,9 @@
 
 <section>
     <h1>Articles</h1>
-    
+    <?php if(isset($_SESSION['loggedUser']) && $_SESSION['loggedUser']!=""):?>
     <a href = "index.php?page=CreateTopic&board=<?= $board ?>">CLIC HERE DUMBASS</a>
-
+    <?php endif;?>
     <ul>
         <?php foreach ($topics as $topic) : ?>
             

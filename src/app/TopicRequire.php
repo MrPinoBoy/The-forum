@@ -6,6 +6,7 @@ require_once "Controller/TopicController.php";
 require_once "Controller/TopicListController.php";
 require_once "Controller/MainPageController.php";
 require_once "Model/Topic.php";
+require_once "Model/TopicList.php";
 require_once "Model/NewTopic.php";
 require_once "Model/MainPageModel.php";
 require_once "config/config.php";
@@ -33,6 +34,7 @@ switch ($page) {
                 (new TopicListController())->index($board);
                 break;
             }
+        break;
     
     default:
         (new MainPageController())->indexMP();
