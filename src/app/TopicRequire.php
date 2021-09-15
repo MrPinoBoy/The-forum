@@ -4,10 +4,13 @@ session_start();
 require_once "Controller/TopicController.php";
 require_once "Controller/TopicListController.php";
 require_once "Controller/MainPageController.php";
+require_once "Controller/MessageController.php";
 require_once "Model/Topic.php";
 require_once "Model/TopicList.php";
 require_once "Model/NewTopic.php";
 require_once "Model/MainPageModel.php";
+require_once "Model/MessageList.php";
+require_once "Model/Message.php";
 require_once "config/config.php";
 
 
@@ -26,6 +29,7 @@ switch ($page) {
     case 'Topic':
         (new TopicListController())->show();
         (new TopicListController())->lock();
+        (new MessageController())->msgList($_GET["Topic"]);
         break;
 
     case 'Boards':
