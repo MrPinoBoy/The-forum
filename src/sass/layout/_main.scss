@@ -1,0 +1,121 @@
+
+#main-container {
+    background-color: white;
+    border-radius: 5px;
+    position: relative;
+    z-index: 10;
+    padding: 10px;
+    top: -20px;
+}
+
+#background-topic {
+    height: 100vh;
+    width: 74vw;
+    border: 1px solid crimson;
+
+    h2 {
+        margin-top: -5vh;
+        font-size: 1.5rem;
+    }
+}
+
+#background-topic-category {
+    background-color: rgb(236, 236, 236);
+    border-radius: 10px;
+    
+    #topic-category {
+        background-color: white;
+        width: 22em;
+        height: 10rem;
+        border-radius: 10px;
+    }
+}
+
+.col {
+    margin: 3rem;
+}
+
+#search-bar {
+    border: 1.5px solid rgb(236, 236, 236);
+    border-radius: 20px;
+    outline: none;
+    padding: 2px 4px;
+    background-color: rgb(236, 236, 236);
+
+    input {
+      border: none;
+      background-color: rgb(236, 236, 236);
+    }
+
+    button {
+      border-left: 1px solid rgb(236, 236, 236);
+      border: none;
+      background-color: rgb(236, 236, 236);
+      text-align: center;
+      i {
+        font-size: 12px;
+      }
+    }
+}
+
+#login-form {
+    border: 1.5px solid rgb(236, 236, 236);
+    border-radius: 20px;
+    outline: none;
+    margin-top: 10px;
+    padding: 2px 4px;
+    background-color: rgb(236, 236, 236);
+
+    input {
+      border: none;
+      background-color: rgb(236, 236, 236);
+    }
+}
+
+#btn-login {
+    border: 1.5px solid rgb(236, 236, 236);
+    border-radius: 20px;
+    margin-top: 10px;
+    background-color: #a18cd1;
+    color: white;
+}
+
+#login-register {
+    margin-top: 10px;
+}
+
+hr {
+    padding-top: 2px;
+    color: black;
+}
+
+#table-side {
+    background-color: #a18cd1;
+    color: white;
+    border-radius: 10px;
+}
+
+#tbody {
+    background-color: rgb(236, 236, 236);
+}
+
+#post {
+    background-color: white;
+    border-radius: 4px;
+    color: gray;
+
+    h5 {
+        color: rgb(73, 65, 129);
+        padding-right: 2rem;
+    }
+    h6 {
+        font-weight: unset;
+        font-style: italic;
+    }
+    p {      
+    }
+}
+
+.card {
+    border: none; // possible de modifier les éléments directement dans le css
+}
