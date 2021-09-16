@@ -1,0 +1,21 @@
+footer {
+  background-color: #2e3039;
+}
+
+footer .footer_part1 {
+  background: -webkit-gradient(linear, left top, right top, from(#dd79d7), to(#2f1b8c));
+  background: linear-gradient(90deg, #dd79d7 0%, #2f1b8c 100%);
+}
+
+footer .footer_part3 .squaretest {
+  color: white;
+  background-color: #8121e0;
+  width: 45px;
+  height: 45px;
+  border-radius: 2px;
+}
+
+footer .footer_part3 .mauve {
+  color: #8121e0;
+}
+/*# sourceMappingURL=footer.css.map */

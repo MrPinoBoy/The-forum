@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,IAAI,CAAC;EACH,MAAM,EAAE,cAAc;CACvB",
+    "sources": [
+        "topics.scss"
+    ],
+    "names": [],
+    "file": "topics.css"
+}

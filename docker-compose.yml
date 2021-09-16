@@ -28,4 +28,4 @@
         PMA_USER: "root"
         PMA_PASSWORD: "root"
   volumes: 
-    mysql_db: 
+    mysql_db:
