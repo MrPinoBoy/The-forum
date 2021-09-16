@@ -19,6 +19,7 @@ require_once "Model/NewTopic.php";
 require_once "Model/MainPageModel.php";
 require_once "Model/MessageList.php";
 require_once "Model/Message.php";
+require_once "Model/NewMessage.php";
 //on require les config et libraries qui seront utilisées dans tout le site
 require_once "config/config.php";
 require_once "libraries/Parsedown.php";
