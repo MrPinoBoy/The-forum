@@ -1,0 +1,28 @@
+footer {
+  .footer_part1 {
+    background: linear-gradient(
+      90deg,
+      rgba(221, 121, 215, 1) 0%,
+      rgba(47, 27, 140, 1) 100%
+    );
+  }
+  .footer_part2 {
+    background: #2d3039;
+    color: #9fa28b;
+    .mauveicons {
+      color: #b06ab3;
+    }
+    .emgreycolor {
+      color: #9fa28b;
+    }
+  }
+  .footer_part3 {
+    color: #9fa28b;
+    .mauvesquare {
+      background-color: #b06ab3;
+    }
+    .emmauvecolor {
+      color: #b06ab3;
+    }
+  }
+}
