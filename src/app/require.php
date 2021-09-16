@@ -1,20 +1,31 @@
 <?php
 
 declare(strict_types = 1);
-
+session_start();
 //on require tous les controllers
 require_once "Controller/HomepageController.php";
 require_once "Controller/UserController.php";
 require_once "Controller/LoginController.php";
+require_once "Controller/TopicController.php";
+require_once "Controller/TopicListController.php";
+require_once "Controller/MainPageController.php";
+require_once "Controller/MessageController.php";
 //on require tous les models
 require_once "Model/User.php";
 require_once "Model/Login.php";
+require_once "Model/Topic.php";
+require_once "Model/TopicList.php";
+require_once "Model/NewTopic.php";
+require_once "Model/MainPageModel.php";
+require_once "Model/MessageList.php";
+require_once "Model/Message.php";
 //on require les config et libraries qui seront utilisées dans tout le site
 require_once "config/config.php";
 require_once "libraries/Parsedown.php";
 //on ne require pas les views, c'est le job des controllers et elles doivent être appelées au bon moment
 
 $page = $_GET['page'] ?? null;
+$board = $_GET["board"] ?? null;
 
 //la library parsedown interprète le markdown super facilement
 // $parsedown = new Parsedown();
@@ -44,7 +55,23 @@ switch($page) {
     case "updateprofile":
         (new UserController())->update();
         break;
+        case 'CreateTopic':
+            (new TopicController())->createTopic();  
+            break;
+        
+        // case 'TopicList':
+        //     (new TopicListController())->index();
+        //     break;
+        
+    case 'Topic':
+        (new TopicListController())->show();
+        (new TopicListController())->lock();
+        (new MessageController())->msgList($_GET["Topic"]);
+        break;
     
+    case 'Boards':
+        (new TopicListController())->index($board);
+        break;
     //ici, on vide toutes nos variables de session ($_SESSION) avec unset, 
     //puis on détruit la session actuelle avec session_destroy
     //contrairement aux autres "case", il n'y a pas de "break", donc au lieu de s'arrêter à notre "case disconnect", la loop switch
@@ -56,7 +83,7 @@ switch($page) {
 
     case "home":
 
-    default:
-        (new HomepageController())->index();
-        break;
-}
+        default:
+            (new MainPageController())->indexMP();
+            break;
+    }

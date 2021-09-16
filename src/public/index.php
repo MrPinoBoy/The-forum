@@ -1,4 +1,4 @@
-<?php require_once "../app/TopicRequire.php" 
+<?php require_once "../app/require.php" 
 ?>
 
 <!DOCTYPE html>
