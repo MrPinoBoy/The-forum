@@ -8721,15 +8721,13 @@ body {
 
 #background-topic-category {
   background-color: #ececec;
-  border-radius: 10px; }
+  border-radius: 10px;
+  height: 50%; }
   #background-topic-category #topic-category {
     background-color: white;
-    width: 22em;
-    height: 10rem;
+    width: 24em;
+    height: 14rem;
     border-radius: 10px; }
-
-.col {
-  margin: 3rem; }
 
 #search-bar {
   border: 1.5px solid #ececec;
