@@ -68,9 +68,13 @@ switch($page) {
         (new TopicListController())->show();
         (new TopicListController())->lock();
         (new MessageController())->msgList($_GET["Topic"]);
-        (new MessageController())->newMessage($_GET["Topic"]);
+        // (new MessageController())->newMessage($_GET["Topic"]);
         break;
     
+    case 'newmsg':
+        (new MessageController())->newMessage($_GET["Topic"]);
+        break;
+
     case 'Boards':
         (new TopicListController())->index($board);
         break;

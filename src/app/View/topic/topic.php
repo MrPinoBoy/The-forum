@@ -23,7 +23,7 @@
         <!-- ajouter tous les éléments accessibles si le topic n'est pas lock ici -->
         <p>This topic isn't locked<p>
     <?php endif; ?>
-
+        <a href="./index.php?page=newmsg&Topic=<?=$topic->title?>">Post reply</a>
 </section>
 
 <?php require '../app/View/includes/footer.php'?>

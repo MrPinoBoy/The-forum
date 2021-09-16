@@ -10,6 +10,7 @@ class NewMessage extends DatabaseManager {
         $this->deleted=0;
         $this->edited=0;
     }
+
     public function sendMessage(){
         $db=$this->connectDb();
         $db->prepare(
@@ -17,6 +18,7 @@ class NewMessage extends DatabaseManager {
         )->execute(
             [$this->content, $this->date, $this->author, $this->editiondate, $this->topic, $this->deleted, $this->edited]
         );
+        
     }
 }
 ?>
