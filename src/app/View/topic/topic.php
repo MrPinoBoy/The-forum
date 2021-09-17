@@ -4,7 +4,7 @@
             $db = new Topic->
         })
     </script> -->
-    <?php if($topic->author == $_SESSION['loggedUser']): ?>
+    <?php if($topic->author == $_SESSION['loggedUser'] && $topic->locked != 1): ?>
         <form method="post">
             <input type="hidden" name="locked" value="1"></input>
             <input type="submit" name="test" value="Lock topic"></input>
@@ -18,8 +18,7 @@
     <p><?= $topic->board ?></p>
     <?php if($topic->locked != 1 && $_SESSION['loggedUser'] != ""):?>
         <!-- ajouter tous les éléments accessibles si le topic n'est pas lock ici -->
-        <p>This topic isn't locked<p>
-    <?php endif; ?>
         <a href="./index.php?page=newmsg&Topic=<?=$topic->title?>">Post reply</a>
+    <?php endif; ?>
 </section>
 

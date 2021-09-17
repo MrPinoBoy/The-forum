@@ -19,7 +19,7 @@ class MainPage extends DatabaseManager{
     public function getRecentTopics($board) {
         $db = $this->connectDb();
         $req = $db->query(
-            "SELECT title, t.creationDate, t.author FROM `boards` as b inner join topics as t inner join messages as m where b.name = t.board and '$board' = t.board  and t.title = m.topic order by m.creationDate desc;"
+            "SELECT title, t.creationDate, t.author FROM `boards` as b inner join topics as t inner join messages as m where b.name = t.board and '$board' = t.board  and t.title = m.topic group by m.topic order by m.creationDate desc;"
         );
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }

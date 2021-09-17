@@ -10,18 +10,25 @@ class MainPageController{
 
         $mainPage = new MainPage;
         $boardsMP = $mainPage->getBoards();
-
-        foreach($boardsMP AS $board){
-            echo "<a href=index.php?page=Boards&board=".$board['name'].">".$board['name']."<br>".$board['description']."</a><br>";
-            $topicsMP = $mainPage->getRecentTopics($board['name']);
+        foreach($boardsMP as $key=>$board){
+            $name = $board['name'];
+            $desc = $board['description'];
+            $boards[$key] = new Board($board['name'],$board['description']);
+            $topicsMP = $mainPage->getRecentTopics($name);
             for($i=0;$i<3;$i++){
-                echo "<a href=index.php?page=Topic&Topic=".$topicsMP[$i]['title'].">".$topicsMP[$i]['title']."<br>".
-                $topicsMP[$i]['creationDate']."<br>".
-                $topicsMP[$i]['author']."</a><br>";
-            }
+                        $title = $topicsMP[$i]['title'];
+                        $date = $topicsMP[$i]['creationDate'];
+                        $author = $topicsMP[$i]['author'];
+                        $topics[$i."title".$board['name']]= $title;
+                        $topics[$i."date".$board['name']]= $date;
+                        $topics[$i."author".$board['name']]= $author;
+                    
+                }
         }
+        
+
+
 
         require_once '../app/View/mainpage/MainPageView.php';
     }
 }
-

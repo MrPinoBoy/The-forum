@@ -40,7 +40,7 @@
             <div class="container-fluid" id="breadcrumb">
                 <ol class="breadcrumb align-text-bottom bread-style">
                     <li class="breadcrumb-item mauveicons">
-                        <a href="" class="text-decoration-none">
+                        <a href="./index.php" class="text-decoration-none">
                         <i class="fas fa-home"></i> Home</a>
                     </li>
                     <li class="breadcrumb-item active mauveicons">

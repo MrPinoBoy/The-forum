@@ -1,7 +1,23 @@
 <?php // Use any data loaded in the controller here ?>
 
 <section>
-    <h1>Articles</h1>
+        <nav>
+            <div class="container-fluid" id="breadcrumb">
+                <ol class="breadcrumb align-text-bottom bread-style">
+                    <li class="breadcrumb-item">
+                        <a href="./index.php" class="text-decoration-none">
+                        <i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="breadcrumb-item active mauveicons">
+                        Board Index
+                    </li>
+                    <li class="breadcrumb-item active">Category One</li>
+                    <li class="breadcrumb-item active"><?= $_GET['board']?></li>
+                </ol>
+            </div>
+        </nav>
+
+    <h2 class="topicicondemos"><?=$_GET['board']?></h2>
     <?php if(isset($_SESSION['loggedUser']) && $_SESSION['loggedUser']!=""):?>
         <button class="btn btn-danger" onclick="window.location.href='index.php?page=CreateTopic&board=<?= $board ?>'">New Topic</button>
     <?php endif;?>
