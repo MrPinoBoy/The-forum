@@ -17,5 +17,4 @@
     </ul>
 </section>
 
-<?php require '../app/View/includes/footer.php'?>
 

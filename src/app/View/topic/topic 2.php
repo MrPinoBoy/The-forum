@@ -1,4 +1,3 @@
-<?php require '../app/View/includes/header.php'?>
 
 
 <section>
@@ -26,4 +25,3 @@
 
 </section>
 
-<?php require '../app/View/includes/footer.php'?>

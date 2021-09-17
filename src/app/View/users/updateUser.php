@@ -1,4 +1,3 @@
-<?php require '../app/View/includes/header.php'?>
 
 <form method="POST" action="./index.php?page=updateprofile" enctype="multipart/form-data"><!-- php sends the form values to this page-->
     <input type="text" name="updateNickname" placeholder="Username" value="<?=$_SESSION['loggedUser']?>"></input>
@@ -11,4 +10,3 @@
     <input type="submit"></input>
 </form>
 
-<?php require '../app/View/includes/footer.php'?>

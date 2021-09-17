@@ -1,4 +1,3 @@
-<!-- <?php require '../app/View/includes/header.php'?> -->
 
 <form method="POST" action="./index.php?page=createUser" enctype="multipart/form-data"><!-- php sends the form values to this page-->
     <input type="text" name="nickname" placeholder="Username"></input>
@@ -9,4 +8,3 @@
     <input type="submit"></input>
 </form>
 
-<!-- <?php require '../app/View/includes/footer.php'?> -->
