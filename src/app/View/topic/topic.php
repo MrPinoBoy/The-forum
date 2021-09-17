@@ -1,6 +1,3 @@
-<?php require '../app/View/includes/header.php'?>
-
-
 <section>
     <!-- <script>
         document.getElementById("lock").addEventListener("click", function(){
@@ -26,4 +23,3 @@
         <a href="./index.php?page=newmsg&Topic=<?=$topic->title?>">Post reply</a>
 </section>
 
-<?php require '../app/View/includes/footer.php'?>

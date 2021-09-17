@@ -96,4 +96,4 @@ switch($page) {
             break;
     }
 
-    require_once "./View/footer.php";
+    require_once "View/includes/footer.php";
