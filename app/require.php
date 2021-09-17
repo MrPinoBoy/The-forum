@@ -26,7 +26,7 @@ require_once "config/config.php";
 require_once "libraries/Parsedown.php";
 //on ne require pas les views, c'est le job des controllers et elles doivent être appelées au bon moment
 
-require "View/includes/header.php";
+require_once "View/includes/header.php";
 
 $page = $_GET['page'] ?? null;
 $board = $_GET["board"] ?? null;
