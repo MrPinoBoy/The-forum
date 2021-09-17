@@ -12,6 +12,7 @@
         <script src="https://kit.fontawesome.com/953d8595bf.js" crossorigin="anonymous"></script>
     </head>
     <body>
+      <p>test</p>
       <?php  require_once '../app/require.php'; ?>
     </body>
 </html>
