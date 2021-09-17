@@ -13,5 +13,6 @@
     </head>
     <body>
       <?php  require_once '/app/require.php'; ?>
+      <p>Ceci est un test</p>
     </body>
 </html>
