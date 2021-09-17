@@ -39,62 +39,62 @@ $board = $_GET["board"] ?? null;
 
 //ce switch regarde dans l'url ce qu'il se trouve après "index.php?page="
 //en fonction de ce qu'il y trouve, il effectue l'action déterminée
-switch($page) {
+// switch($page) {
 
-    //On est sur la page "index.php?page=createUser". On crée un nouvel objet de la classe "UserController" 
-    //(qui se trouve dans Controller/UserController.php) et effectue sa fonction "create()".
-    //au break, on sort du switch
-    case "createUser":
-        (new UserController())->create();
-        break;
+//     //On est sur la page "index.php?page=createUser". On crée un nouvel objet de la classe "UserController" 
+//     //(qui se trouve dans Controller/UserController.php) et effectue sa fonction "create()".
+//     //au break, on sort du switch
+//     case "createUser":
+//         (new UserController())->create();
+//         break;
 
-    case "login":
-        (new LoginController())->login();
-        break;
+//     case "login":
+//         (new LoginController())->login();
+//         break;
     
-    case "profile":
-        (new loginController())->profile();
-        break;
+//     case "profile":
+//         (new loginController())->profile();
+//         break;
 
-    case "updateprofile":
-        (new UserController())->update();
-        break;
-        case 'CreateTopic':
-            (new TopicController())->createTopic();  
-            break;
+//     case "updateprofile":
+//         (new UserController())->update();
+//         break;
+//         case 'CreateTopic':
+//             (new TopicController())->createTopic();  
+//             break;
         
-        // case 'TopicList':
-        //     (new TopicListController())->index();
-        //     break;
+//         // case 'TopicList':
+//         //     (new TopicListController())->index();
+//         //     break;
         
-    case 'Topic':
-        (new TopicListController())->show();
-        (new TopicListController())->lock();
-        (new MessageController())->msgList($_GET["Topic"]);
-        // (new MessageController())->newMessage($_GET["Topic"]);
-        break;
+//     case 'Topic':
+//         (new TopicListController())->show();
+//         (new TopicListController())->lock();
+//         (new MessageController())->msgList($_GET["Topic"]);
+//         // (new MessageController())->newMessage($_GET["Topic"]);
+//         break;
     
-    case 'newmsg':
-        (new MessageController())->newMessage($_GET["Topic"]);
-        break;
+//     case 'newmsg':
+//         (new MessageController())->newMessage($_GET["Topic"]);
+//         break;
 
-    case 'Boards':
-        (new TopicListController())->index($board);
-        break;
-    //ici, on vide toutes nos variables de session ($_SESSION) avec unset, 
-    //puis on détruit la session actuelle avec session_destroy
-    //contrairement aux autres "case", il n'y a pas de "break", donc au lieu de s'arrêter à notre "case disconnect", la loop switch
-    //va passer à la case home. Idem, pas de break, la boucle switch va passer à la case default, et nous ramener à la page d'accueil
-    case "disconnect":
-        unset($_SESSION);
-        session_destroy();
-        echo '<meta http-equiv="refresh" content="0; URL=index.php">';
+//     case 'Boards':
+//         (new TopicListController())->index($board);
+//         break;
+//     //ici, on vide toutes nos variables de session ($_SESSION) avec unset, 
+//     //puis on détruit la session actuelle avec session_destroy
+//     //contrairement aux autres "case", il n'y a pas de "break", donc au lieu de s'arrêter à notre "case disconnect", la loop switch
+//     //va passer à la case home. Idem, pas de break, la boucle switch va passer à la case default, et nous ramener à la page d'accueil
+//     case "disconnect":
+//         unset($_SESSION);
+//         session_destroy();
+//         echo '<meta http-equiv="refresh" content="0; URL=index.php">';
 
-    case "home":
+//     case "home":
 
-        default:
-            (new MainPageController())->indexMP();
-            break;
-    }
+//         default:
+//             (new MainPageController())->indexMP();
+//             break;
+//     }
 
     require "View/includes/footer.php";
