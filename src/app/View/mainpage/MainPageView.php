@@ -52,21 +52,21 @@
                 </button>
             </form>
             <hr>
+            <?php if($_SESSION['loggedUser'] == ""): ?>
             <p>Login - Register</p>
-            <form id="login-form" class="form-inline flex-nowrap">
-                <input class="form-control w-100" type="search" placeholder="Username">
-            </form>
-            <form id="login-form" class="form-inline flex-nowrap">
-                <input class="form-control w-100" type="search" placeholder="Password">
-            </form>
+            <form method="post" id="login-form" class="form-inline flex-nowrap" action="./index.php?page=login">
+                <input class="form-control w-100" type="text" placeholder="Email" name="loginEmail">
+                <input class="form-control w-100" type="text" placeholder="Password" name="loginPassword">
+            
             <div id="login-register">
                 <input type="checkbox" class="form-check-input" id="">
                 <label class="form-check-label"> Remember me</label>
             </div>
-            <button id="btn-login" class="btn btn-block flex-nowrap">Login</button>
+            <input type="submit" id="btn-login" class="btn btn-block flex-nowrap" value="Login">
+            </form>
             <hr>
             <p>I forgot my password</p>
-
+            <?php endif;?>
             <!-- Last post -->
             <div class="table-responsive mt-5" id="">    
             </div>
