@@ -8,7 +8,7 @@
     define('DB_NAME','forum-nainportequoi');
 
     //URLROOT (Dynamic links)
-    define('URLROOT','localhost/188.166.24.55');
+    define('URLROOT','http://188.166.24.55/phpmyadmin/index.php');
 
 
     //Sitename
