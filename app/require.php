@@ -70,7 +70,18 @@ switch($page) {
     case 'Topic':
         (new TopicListController())->show();
         (new TopicListController())->lock();
+
+        // 1)on veut afficher la liste des messages quand on arrive sur la page d'un topic ("case 'Topic'").
+        // Personnelement je commence par écrire le nom du futur controller, ainsi que le nom de la future fonction.
+        // Le "$_GET["Topic"]", on l'a rajouté après quand on s'est rendu compte qu'on aurait besoin de lui pour 
+        // récupérer les messages correspondants.
+        // La syntaxe (new MessageController())->msgList() est identique mais moins longue à :
+        // $MessageController = new MessageController();
+        // $MessageController->msgList();
+        //
+        //Maintenant, on va créer MessageController.php
         (new MessageController())->msgList($_GET["Topic"]);
+
         // (new MessageController())->newMessage($_GET["Topic"]);
         break;
     
