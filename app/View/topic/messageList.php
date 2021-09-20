@@ -7,7 +7,7 @@ On a une array "$messages" remplie d'objet "Message", et pour chaque élément..
  -->
 
 <?php foreach($messages as $message):?>
-
+    
     <!-- 
         ... on écrit (echo) la valeur de sa caractéristique "content" dans une balise <p>
         ?= dans une balise (<>) équivaut à ?php echo

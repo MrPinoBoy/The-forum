@@ -2,7 +2,7 @@
 
 //6) MessageList est encore une fois une classe d'objet. Quand on travaille en MVC, le Model est l'objet qui va
 // intéragir avec la base de données.
-//Les ligne 6 et 8 servent à donner l'accès à la fonction "connectDb()" de la classe d'objet "DatabaseManager", qui établi une connexion à la base de données
+//Les ligne 6 et 7 servent à donner l'accès à la fonction "connectDb()" de la classe d'objet "DatabaseManager", qui établi une connexion à la base de données
 require_once "../app/libraries/DatabaseManager.php"; //ici on donne le lien du fichier où se trouve la classe
 class MessageList extends DatabaseManager {// et ici le extends permet à MessageList d'utiliser les fonctions et variables de DatabaseManager
     
@@ -23,6 +23,7 @@ class MessageList extends DatabaseManager {// et ici le extends permet à Messag
         );
         //D'après ce que j'ai compris, la query retourne "1" si elle a trouvé un résultat correspondant à ce qu'on cherche
         // et pour récupérer le-dit résultat on fait fetchAll(PDO::FETCH_ASSOC)
+        // on retourne maintenant dans MessageController
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
 }
